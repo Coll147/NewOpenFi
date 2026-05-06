@@ -5,25 +5,18 @@ app.use('/public', express.static('public'))
 app.set('view engine', 'ejs');
 
 
+// Routes
 app.get('/', (req, res) => {
   res.render('pages/index', {
     title: 'OpenFi Network'
   });
 });
 
-app.get('/dashboard/devices', (req, res) => {
-  res.render('pages/dashboard/devices', {
-    title: 'OpenFi - Devices'
-  });
-});
-
-
-// Routes
 const apiRoutes = require('./routes/api.routes');
-const webRoutes = require('./routes/web.routes');
+const webRoutes = require('./routes/dashboard.routes');
 
 app.use('/api', apiRoutes);
-app.use('/', webRoutes);
+app.use('/dashboard', webRoutes);
 
 
 // Error responses
