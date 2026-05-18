@@ -14,5 +14,5 @@ document.addEventListener("DOMContentLoaded", (event) => {
 
 
 function redirect(page){
-    window.location.replace(window.location.origin + page);
+    location.href = page;
 }
